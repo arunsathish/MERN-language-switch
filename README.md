@@ -32,3 +32,4 @@
 - [Folkstalk - Multiple Connections To Mongoose With Code Examples](https://www.folkstalk.com/2022/07/multiple-connections-to-mongoose-with-code-examples.html)
 - [Right-to-Left Development: Tips and Tricks](https://steelkiwi.com/blog/right-left-development-tips-and-tricks/)
 - [Stackoverflow Answer - Matthew Bakaitis](https://stackoverflow.com/a/22838614/7899988)
+- [Open Multiple MongoDB connection in Express.js App](https://dev.to/ziishaned/open-multiple-mongodb-connection-in-express-js-app-36be)

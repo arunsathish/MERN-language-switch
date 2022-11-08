@@ -33,12 +33,12 @@ const ProductAll = () => {
         products.map((item) => (
           <div className="ui raised link card" key={item._id}>
             <div className="content">
-              <div className="header">{item.name}</div>
+              <div className="header">{language === "en" ? item["en-US"].name : item["ar-BH"].name}</div>
               <div className="meta">
                 <span className="category">{item.category}</span>
               </div>
               <div className="description">
-                <p>{item.description}</p>
+                <p>{language === "en" ? item["en-US"].description : item["ar-BH"].description}</p>
               </div>
             </div>
             <div className="extra content">

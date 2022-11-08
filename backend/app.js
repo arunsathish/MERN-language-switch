@@ -67,7 +67,7 @@ app.get("/api/product", async (req, res) => {
 
   // Sending Find request to Database
   try {
-    const data = await conn.models.Product.find({});
+    const data = await fastconn.models.Product.find({});
     res.status(200).json({ message: "success", data: data });
   } catch (error) {
     res.status(500).json({ message: "Failed to load.", error: error });
@@ -90,14 +90,26 @@ app.post("/api/product", async (req, res) => {
     res.status(500).json({ message: "Invalid Language" });
   }
 
-  // Sending Save request to Database
-  const newProduct = new conn.models.Product({
-    name: req.body.name,
-    description: req.body.description,
+  // console.log(req.body['en-US'].name_en);
+  // console.log(req.body['en-US'].description_en);
+  // console.log(req.body['ar-BH'].name_ar);
+  // console.log(req.body['ar-BH'].description_ar);
+
+  const newProduct = new fastconn.models.Product({
+    // Sending Save request to Database
+    "en-US": {
+      name: req.body["en-US"].name_en,
+      description: req.body["en-US"].description_en,
+    },
+    "ar-BH": {
+      name: req.body["ar-BH"].name_ar,
+      description: req.body["ar-BH"].description_ar,
+    },
     category: req.body.category,
     price: req.body.price,
   });
   try {
+    console.log(newProduct);
     const data = await newProduct.save();
     console.log(data);
     res.status(201).send({ message: "Save sucess!", data: data });
